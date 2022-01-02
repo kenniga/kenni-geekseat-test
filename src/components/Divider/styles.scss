@@ -1,0 +1,88 @@
+.divider {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin: 10px 0;
+
+    &__content {
+        flex: 0 1 auto;
+        overflow: hidden;
+        padding: 0 7px;
+        order: 2;
+        display: flex;
+    }
+
+    &:before,
+    &:after {
+        content: '';
+        width: 100%;
+        border-top: 2px solid black;
+        flex: 1;
+    }
+
+    &::before {
+        order: 1;
+    }
+
+    &::after {
+        order: 3;
+    }
+
+    &--dashed {
+        &:before,
+        &:after {
+            border-top-style: dashed;
+        }
+    }
+
+    &--dotted {
+        &:before,
+        &:after {
+            border-top-style: dotted;
+        }
+    }
+
+    &--light {
+        &:before,
+        &:after {
+            border-top-width: 1px;
+        }
+    }
+
+    &--heavy {
+        &:before,
+        &:after {
+            border-top-width: 3px;
+        }
+    }
+
+    &--justify-start {
+        & > span {
+            order: 1;
+            padding-left: 0;
+        }
+
+        &:before {
+            order: 2;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+
+    &--justify-end {
+        & > span {
+            order: 2;
+            padding-right: 0;
+        }
+
+        &:before {
+            order: 1;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+}
